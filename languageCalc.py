@@ -15,9 +15,9 @@ numbers = {0:'', 1:'ein', 2:'zwei', 3:'drei', 4:'vier', 5:'fünf', 6:'sechs', 7:
 def inp():
 	x = input("Please enter a number 1-999: ")
 	one = int(x)%10
-	ten = int(x)-one
-	hundred = int(int(x)/100)
-	tausend = int(int(x)/1000)
+	ten = (int(x)%100)-one
+	hundred = (int(x)%1000)-ten
+	tausend = (int(x)%10000)-hundred
 	if(int(x)<=12):
 		print(numbers[int(x)])
 	if(int(x)>=13 and int(x)<20):
@@ -28,7 +28,7 @@ def inp():
 		else:
 			print(numbers[one]+"und"+numbers[ten])
 	if(int(x)>=100 and int(x)<1000):
-		ten = (int(x)%100)-one
+		#ten = (int(x)%100)-one
 		if(int(x) == 101):
 			print(numbers[hundred]+numbers[100]+'eins')
 		else:
